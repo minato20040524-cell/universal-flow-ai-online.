@@ -1,0 +1,38 @@
+# Render Blueprint: deploys UNIVERSAL FLOW AI as one always-on web service and
+# one PostgreSQL database, both in Singapore. https://render.com/docs/blueprint-spec
+#
+# Plans are left at Render's defaults for new services: the smallest always-on
+# web service and the smallest paid database (about $7 + $6 a month as of
+# 2026; check render.com/pricing). The Free plans are not used on purpose:
+# a free web service sleeps after 15 minutes, which stops schedules and delays
+# webhooks, and a free database is deleted after 30 days plus a grace period.
+
+services:
+  - type: web
+    name: universal-flow-ai
+    runtime: docker
+    region: singapore
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: universal-flow-db
+          property: connectionString
+      # Encrypts every stored account key. Generated once; never change or lose it.
+      - key: MASTER_KEY
+        generateValue: true
+      # The first account to sign up becomes the administrator; then sign-up closes.
+      - key: ALLOW_SIGNUP
+        value: "false"
+      - key: TRUST_PROXY
+        value: "true"
+      - key: PORT
+        value: "10000"
+      # PUBLIC_BASE_URL defaults to the service's onrender.com address.
+      # Set it here when you add your own domain.
+
+databases:
+  - name: universal-flow-db
+    region: singapore
+    databaseName: universal
+    user: universal

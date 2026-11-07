@@ -1,0 +1,25 @@
+{
+  "name": "@universal-flow/backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UNIVERSAL FLOW AI backend: HTTP API, PostgreSQL persistence, job queue, worker and scheduler",
+  "type": "module",
+  "main": "./dist/src/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --test-concurrency=1 \"dist/test/**/*.test.js\"",
+    "start": "node dist/src/main.js",
+    "migrate": "node dist/src/cli.js migrate",
+    "cli": "node dist/src/cli.js"
+  },
+  "dependencies": {
+    "@universal-flow/core-engine": "workspace:*",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "/",
+  "name": "UNIVERSAL FLOW AI",
+  "short_name": "Universal Flow",
+  "description": "Connect your apps, build workflows in a 3D studio, and approve what they do from your phone.",
+  "lang": "en",
+  "start_url": "/workflows",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1c2127",
+  "theme_color": "#1c2127",
+  "categories": ["productivity", "business", "utilities"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Workflows", "url": "/workflows", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Applications", "url": "/integrations", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Marketplace", "url": "/marketplace", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

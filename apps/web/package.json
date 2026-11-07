@@ -1,0 +1,28 @@
+{
+  "name": "@universal-flow/web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UNIVERSAL FLOW AI web app: sign-in, Applications & Integrations, Custom API builder, Marketplace, Workflows and Spatial Studio",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test \"dist-test/test/**/*.test.js\"",
+    "e2e": "node e2e/ui.e2e.mjs && node e2e/studio.e2e.mjs && node e2e/pwa.e2e.mjs",
+    "typecheck:offline": "tsc -p tsconfig.offline.json",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@universal-flow/core-engine": "workspace:*",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "esbuild": "^0.25.0",
+    "playwright": "^1.50.0",
+    "typescript": "^5.6.0"
+  }
+}

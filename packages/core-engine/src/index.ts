@@ -1,0 +1,31 @@
+/** Version of the Core Engine; plugin manifests declare a compatible range in `engine`. */
+export const ENGINE_VERSION = '1.0.0';
+
+export * from './errors.js';
+export * from './util.js';
+export * from './semver.js';
+export * from './schema/json-schema.js';
+export * from './manifest/types.js';
+export * from './manifest/parse-manifest.js';
+export * from './registry/category-registry.js';
+export * from './registry/stores.js';
+export * from './registry/plugin-registry.js';
+export * from './security/url-guard.js';
+export * from './security/redact.js';
+export * from './security/secret-store.js';
+export * from './expression/path.js';
+export * from './expression/template.js';
+export * from './connector/http-client.js';
+export * from './connector/oauth.js';
+export * from './connector/api-connector.js';
+export * from './nodes/node-generator.js';
+export * from './workflow/types.js';
+export * from './workflow/ports.js';
+export * from './workflow/condition.js';
+export * from './workflow/cron.js';
+export * from './workflow/parse-workflow.js';
+export * from './workflow/validate-workflow.js';
+export * from './workflow/execution-store.js';
+export * from './workflow/engine.js';
+export * from './workflow/plugin-action-runner.js';
+export * from './workflow/webhook.js';
