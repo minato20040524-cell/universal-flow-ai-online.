@@ -3,3 +3,6 @@ dist
 .turbo
 *.log
 .env
+flownode/node_modules
+flownode/**/dist
+flownode/backend/data

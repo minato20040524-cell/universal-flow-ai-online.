@@ -1,0 +1,15 @@
+{
+  "name": "flownode",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FLOWNODE V1 - Visual AI Collaboration Studio",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "start": "node backend/dist/src/server/index.js",
+    "dev:backend": "npm run build -w backend && npm run start",
+    "dev:frontend": "npm run dev -w frontend",
+    "test": "npm test -w backend"
+  },
+  "engines": { "node": ">=22.13" }
+}
