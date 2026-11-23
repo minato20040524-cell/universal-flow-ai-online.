@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: #0B1120;
+  color: #e5e7eb;
+  font-family: Inter, system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* grid workspace */
+.grid-bg {
+  background-color: #0b1224;
+  background-image:
+    radial-gradient(circle at 50% 40%, rgba(34, 211, 238, 0.06), transparent 55%),
+    linear-gradient(rgba(38, 52, 73, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 52, 73, 0.35) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+.panel { background: #111827; border: 1px solid #263449; border-radius: 16px; }
+.panel-soft { background: rgba(17, 24, 39, 0.85); border: 1px solid #263449; border-radius: 14px; }
+
+.scroll-thin { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
+.scroll-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #334155; border-radius: 6px; }
+
+/* Living Cable: arus hanya berjalan ketika ada event transfer nyata */
+@keyframes cable-flow { to { stroke-dashoffset: -40; } }
+.cable-flow { animation: cable-flow 0.7s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .cable-flow { animation: none; } }
+
+@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 var(--glow, #22d3ee66); } 100% { box-shadow: 0 0 0 10px transparent; } }
+.pulse-ring { animation: pulse-ring 1.6s ease-out infinite; }
+
+/* React Flow gelap */
+.react-flow { background: transparent; }
+.react-flow__controls { background: #111827; border: 1px solid #263449; border-radius: 10px; overflow: hidden; box-shadow: none; }
+.react-flow__controls-button { background: #111827; border-bottom: 1px solid #263449; fill: #cbd5e1; }
+.react-flow__controls-button:hover { background: #1e293b; }
+.react-flow__minimap { background: #0f172a; border: 1px solid #263449; border-radius: 10px; }
+.react-flow__handle { width: 12px; height: 12px; border: 2px solid #0B1120; }
+.react-flow__attribution { background: transparent !important; color: #475569; }
+.react-flow__attribution a { color: #475569; }
+.react-flow__edge.selected .react-flow__edge-path { stroke-width: 4; }
+
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.45; }
+:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }

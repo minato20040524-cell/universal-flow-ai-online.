@@ -5,13 +5,13 @@ export const AGENT_NODE_IDS = ['claude-01', 'claude-02', 'claude-03'];
 export function defaultGraph(): Graph {
   const positions: Graph['positions'] = {
     'claude-01': { x: 0, y: 0 },
-    'claude-02': { x: 0, y: 300 },
-    'claude-03': { x: 0, y: 600 },
-    hub: { x: 600, y: 200 },
-    output: { x: 1140, y: BUILDERS.length * 175 },
+    'claude-02': { x: 0, y: 290 },
+    'claude-03': { x: 0, y: 580 },
+    hub: { x: 560, y: 230 },
+    output: { x: 1060, y: BUILDERS.length * 130 },
   };
   BUILDERS.forEach((b, i) => {
-    positions[b.id] = { x: 1140, y: i * 175 };
+    positions[b.id] = { x: 1060, y: i * 130 };
   });
   const edges: GraphEdge[] = [];
   AGENT_NODE_IDS.forEach((a, i) => {

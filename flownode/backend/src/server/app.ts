@@ -5,6 +5,7 @@ import type { Engine } from '../orchestration/engine.js';
 import { makeZip } from '../storage/zip.js';
 import type { Store } from '../storage/store.js';
 import { AGENTS, type AgentId, type Graph } from '../types.js';
+import { defaultGraph } from '../orchestration/graph.js';
 import { buildSnapshot } from './state.js';
 
 class HttpError extends Error {
@@ -87,6 +88,12 @@ export function createApp(store: Store, engine: Engine, staticDir?: string) {
   app.put('/api/projects/:id/graph', wrap((req, res) => {
     if (!store.getProject(req.params.id!)) throw new HttpError(404, 'Proyek tidak ditemukan.');
     store.saveGraph(req.params.id!, validGraph(req.body));
+    engine.bus.changed();
+    ok(res);
+  }));
+  app.post('/api/projects/:id/graph/reset', wrap((req, res) => {
+    if (!store.getProject(req.params.id!)) throw new HttpError(404, 'Proyek tidak ditemukan.');
+    store.saveGraph(req.params.id!, defaultGraph());
     engine.bus.changed();
     ok(res);
   }));

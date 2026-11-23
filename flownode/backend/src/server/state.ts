@@ -33,10 +33,11 @@ export function buildSnapshot(store: Store, engine: Engine) {
 
   const now = Date.now();
   const durationMs = run ? (run.endedAt ?? now) - run.startedAt : 0;
+  const runArtifacts = run ? artifacts.filter((a) => a.runId === run.id) : artifacts;
   const stats = {
     activeAgents: agents.filter((a) => a.status === 'working').length,
-    files: artifacts.length,
-    totalBytes: artifacts.reduce((n, a) => n + a.size, 0),
+    files: runArtifacts.length,
+    totalBytes: runArtifacts.reduce((n, a) => n + a.size, 0),
     durationMs: engine.activeRun || run ? durationMs : 0,
     tasksDone: run ? run.steps.filter((s) => s.status === 'done').length : 0,
     tasksTotal: run ? run.steps.length : 0,
